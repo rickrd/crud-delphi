@@ -24,7 +24,6 @@ object FormPadrao: TFormPadrao
     Height = 29
     Caption = 'ToolBar1'
     TabOrder = 0
-    ExplicitWidth = 600
     object btAnterior: TButton
       Left = 0
       Top = 0
@@ -98,28 +97,25 @@ object FormPadrao: TFormPadrao
     Height = 284
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 600
-    ExplicitHeight = 263
     DesignSize = (
       598
       284)
-    object cbLimparCampos: TCheckBox
-      Left = 394
-      Top = 227
-      Width = 56
-      Height = 17
-      Caption = 'Limpar'
-      TabOrder = 0
-    end
     object Panel2: TPanel
       Left = 98
       Top = 16
       Width = 400
       Height = 250
       Anchors = []
-      TabOrder = 1
-      ExplicitLeft = 99
-      ExplicitTop = 6
+      BevelOuter = bvNone
+      TabOrder = 0
+      object cbLimparCampos: TCheckBox
+        Left = 344
+        Top = 229
+        Width = 56
+        Height = 17
+        Caption = 'Limpar'
+        TabOrder = 0
+      end
     end
   end
   object StatusBar1: TStatusBar
@@ -134,8 +130,6 @@ object FormPadrao: TFormPadrao
         Text = 'Aguardando'
         Width = 50
       end>
-    ExplicitTop = 292
-    ExplicitWidth = 600
   end
   object SaveTextFileDialog1: TSaveTextFileDialog
     Left = 552
