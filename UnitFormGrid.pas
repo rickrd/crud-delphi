@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, UnitLista, UnitFormEstado, UnitFormPais,
-  Vcl.ToolWin, Vcl.ComCtrls, Vcl.StdCtrls, UnitDados;
+  Vcl.ToolWin, Vcl.ComCtrls, Vcl.StdCtrls, UnitDados, System.StrUtils;
 
 type
   TFormGrid = class(TForm)
@@ -20,6 +20,8 @@ type
     procedure btExcluirClick(Sender: TObject);
     procedure btEscolherClick(Sender: TObject);
     procedure edPesquisaChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure testeStringGrid(Lista: TLista; Classe: TClass);
   private
     { Private declarations }
     palavra: string;
@@ -31,10 +33,33 @@ var
   FormGrid: TFormGrid;
   FClass: TClass;
   FLista: TLista;
+  checkList: boolean;
 
 implementation
 {$R *.dfm}
 uses UnitFormCidade;
+
+procedure TFormGrid.testeStringGrid(Lista: TLista; Classe: TClass);
+var
+  wCont: Integer;
+  wObj: TObject;
+begin
+  for wCont := 0 to Lista.Count-1 do
+    begin
+      wObj := Lista.getObjectByIndex(wCont);
+      if Classe = TCidade then
+         begin
+           with wObj as TCidade do
+             begin
+               StringGrid1.Cells[0, wCont] := inttostr(wCod);
+               StringGrid1.Cells[1, wCont] := wCidade;
+               StringGrid1.Cells[2, wCont] := wPais;
+               StringGrid1.Cells[3, wCont] := wUF;
+             end;
+         end;
+    end;
+end;
+
 procedure TFormGrid.btEscolherClick(Sender: TObject);
 var
   wObj: TObject;
@@ -70,15 +95,15 @@ end;
 
 procedure TFormGrid.edPesquisaChange(Sender: TObject);
 var
-  wString: string;
   wCont: integer;
   wObj: TObject;
   wCont2: integer;
   wCheckString: string;
   wLista: TLista;
+  wObj2: TObject;
+  I: Integer;
 begin
   palavra := edPesquisa.Text;
-  wCheckString := '';
   wLista := TLista.Create;
   for wCont := 0 to FLista.Count-1 do
     begin
@@ -87,20 +112,28 @@ begin
          begin
            with wObj as TCidade do
              begin
-               for wCont2 := 1 to wCidade.Length do
-                 begin
-                   wCheckString := wCheckString + Copy(wCidade, wCont2, 1);
-                   if wCheckString = palavra then
-                      begin
-                        ShowMessage(wCheckString);
-                        wLista.Inserir(wObj, TCidade);
-                        exit;
-                      end;
-                 end;
+               if ContainsText(wCidade, palavra) then
+                   begin
+                     ShowMessage('Resultado containstext:'+booltostr(ContainsText(wCidade, palavra)));
+                     wLista.Inserir(wObj, TCidade);
+                   end;
              end;
          end;
     end;
-  FormGrid.geraGrid(wLista, TCidade);
+
+  ShowMessage('lista count:'+inttostr(wLista.Count));
+  for I := 0 to wLista.Count-1 do
+    begin
+      wObj2 := wLista.getObjectByIndex(I);
+      with wObj2 as TCidade do
+        begin
+          ShowMessage(wCidade);
+        end;
+    end;
+  if wLista.Count > 0 then
+     begin
+     FormGrid.testeStringGrid(wLista, TCidade);
+     end;
 
 end;
 
@@ -109,22 +142,34 @@ begin
   Action := caFree;
 end;
 
+procedure TFormGrid.FormCreate(Sender: TObject);
+begin
+  checkList := true;
+end;
+
 procedure TFormGrid.geraGrid(wLista: TLista; wClass: TClass);
 var
   wCont: integer;
   wObj: TObject;
 begin
-  FClass := wClass;
-  FLista := wLista;
-  wObj := FClass.Create;
-  StringGrid1.RowCount := FLista.Count;
-  for wCont := 0 to FLista.Count-1 do
+  if checkList = true then
+     begin
+       FLista := wLista;
+       FClass := wClass;
+       checkList := false;
+     end;
+  wObj := wClass.Create;
+  ShowMessage('wLista count:'+inttostr(wLista.Count));
+  //StringGrid1.RowCount := wLista.Count;
+  for wCont := 0 to wLista.Count-1 do
     begin
-      wObj := FLista.getObjectByIndex(wCont);
+      wObj := wLista.getObjectByIndex(wCont);
       // fazer uma condição para cada tipo de Classe existente
       if  wObj.ClassType = TCidade then
           with wObj as TCidade do
             begin
+              ShowMessage('cod:'+inttostr(wCod));
+              ShowMessage('testestring:'+wCidade);
               StringGrid1.Cells[0, wCont] := inttostr(wCod);
               StringGrid1.Cells[1, wCont] := wCidade;
               StringGrid1.Cells[2, wCont] := wPais;
