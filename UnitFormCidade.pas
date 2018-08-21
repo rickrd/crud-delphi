@@ -294,7 +294,7 @@ begin
   inherited;
   if wLista.Count > 0 then
      begin
-       FormGrid := TFormGrid.Create(nil);
+       FormGrid := TFormGrid.Create(FormCidade);
        FormGrid.geraGrid(wLista, TCidade);
        FormGrid.Show;
      end;

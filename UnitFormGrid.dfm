@@ -18,22 +18,16 @@ object FormGrid: TFormGrid
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 48
-    Top = 228
-    Width = 46
-    Height = 13
-    Caption = 'Pesquisa:'
-  end
   object StringGrid1: TStringGrid
-    Left = 8
-    Top = 35
+    Left = 0
+    Top = 59
     Width = 265
     Height = 184
     ColCount = 4
+    DrawingStyle = gdsClassic
     FixedCols = 0
     FixedRows = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goRowSelect]
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -46,7 +40,6 @@ object FormGrid: TFormGrid
     ButtonHeight = 21
     Caption = 'ToolBar1'
     TabOrder = 1
-    ExplicitWidth = 349
     object btExcluir: TButton
       Left = 0
       Top = 0
@@ -68,9 +61,9 @@ object FormGrid: TFormGrid
     end
   end
   object edPesquisa: TEdit
-    Left = 100
-    Top = 225
-    Width = 121
+    Left = 64
+    Top = 35
+    Width = 70
     Height = 21
     TabOrder = 2
     OnChange = edPesquisaChange
