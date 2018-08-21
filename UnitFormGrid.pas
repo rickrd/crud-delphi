@@ -13,12 +13,16 @@ type
     ToolBar1: TToolBar;
     btExcluir: TButton;
     btEscolher: TButton;
+    edPesquisa: TEdit;
+    Label1: TLabel;
     procedure geraGrid(wLista: TLista; wClass: TClass);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btExcluirClick(Sender: TObject);
     procedure btEscolherClick(Sender: TObject);
+    procedure edPesquisaChange(Sender: TObject);
   private
     { Private declarations }
+    palavra: string;
   public
     { Public declarations }
   end;
@@ -61,6 +65,42 @@ begin
   finally
     Self.Free;
   end;
+
+end;
+
+procedure TFormGrid.edPesquisaChange(Sender: TObject);
+var
+  wString: string;
+  wCont: integer;
+  wObj: TObject;
+  wCont2: integer;
+  wCheckString: string;
+  wLista: TLista;
+begin
+  palavra := edPesquisa.Text;
+  wCheckString := '';
+  wLista := TLista.Create;
+  for wCont := 0 to FLista.Count-1 do
+    begin
+      wObj := FLista.getObjectByIndex(wCont);
+      if FClass = TCidade then
+         begin
+           with wObj as TCidade do
+             begin
+               for wCont2 := 1 to wCidade.Length do
+                 begin
+                   wCheckString := wCheckString + Copy(wCidade, wCont2, 1);
+                   if wCheckString = palavra then
+                      begin
+                        ShowMessage(wCheckString);
+                        wLista.Inserir(wObj, TCidade);
+                        exit;
+                      end;
+                 end;
+             end;
+         end;
+    end;
+  FormGrid.geraGrid(wLista, TCidade);
 
 end;
 

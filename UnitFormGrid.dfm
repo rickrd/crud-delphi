@@ -1,8 +1,8 @@
 object FormGrid: TFormGrid
   Left = 0
   Top = 0
-  Width = 365
-  Height = 340
+  Width = 448
+  Height = 418
   AutoScroll = True
   Caption = 'FormGrid'
   Color = clBtnFace
@@ -17,6 +17,13 @@ object FormGrid: TFormGrid
   OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 48
+    Top = 228
+    Width = 46
+    Height = 13
+    Caption = 'Pesquisa:'
+  end
   object StringGrid1: TStringGrid
     Left = 8
     Top = 35
@@ -33,16 +40,17 @@ object FormGrid: TFormGrid
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 349
+    Width = 432
     Height = 29
-    ButtonHeight = 25
+    ButtonHeight = 21
     Caption = 'ToolBar1'
     TabOrder = 1
+    ExplicitWidth = 349
     object btExcluir: TButton
       Left = 0
       Top = 0
       Width = 70
-      Height = 25
+      Height = 21
       Caption = 'Excluir'
       TabOrder = 0
       OnClick = btExcluirClick
@@ -51,11 +59,19 @@ object FormGrid: TFormGrid
       Left = 70
       Top = 0
       Width = 70
-      Height = 25
+      Height = 21
       Caption = 'Escolher'
       Default = True
       TabOrder = 1
       OnClick = btEscolherClick
     end
+  end
+  object edPesquisa: TEdit
+    Left = 100
+    Top = 225
+    Width = 121
+    Height = 21
+    TabOrder = 2
+    OnChange = edPesquisaChange
   end
 end
