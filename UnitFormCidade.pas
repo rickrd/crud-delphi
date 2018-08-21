@@ -370,6 +370,8 @@ begin
                        begin
                         wAux := 1;
                         wLista.Update(I, Cidade);
+                        if wClear then
+                           limpaCampos();
                         break;
                        end
                     else
@@ -377,10 +379,17 @@ begin
                   end;
               end;
             if wAux =0 then
-               wLista.Inserir(Cidade, TCidade)
+               begin
+               wLista.Inserir(Cidade, TCidade);
+               if wClear then
+                  limpaCampos();
+               end;
+
           end
        else
          wLista.Inserir(Cidade, TCidade);
+         if wClear then
+            limpaCampos();
      end;
 end;
 

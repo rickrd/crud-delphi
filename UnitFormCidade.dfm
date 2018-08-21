@@ -18,7 +18,6 @@ inherited FormCidade: TFormCidade
       OnClick = btBuscarClick
     end
     inherited btInserir: TButton
-      Default = False
       OnClick = btInserirClick
     end
     inherited btExcluir: TButton
@@ -37,14 +36,12 @@ inherited FormCidade: TFormCidade
   inherited Panel1: TPanel
     Height = 264
     ExplicitHeight = 264
-    inherited cbLimparCampos: TCheckBox
-      TabOrder = 1
-    end
     inherited Panel2: TPanel
+      Left = 99
       Top = 6
-      TabOrder = 0
-      ExplicitLeft = 98
-      object Label1: TLabel
+      ExplicitLeft = 99
+      ExplicitTop = 6
+      object Label1: TLabel [0]
         Left = 52
         Top = 66
         Width = 42
@@ -52,7 +49,7 @@ inherited FormCidade: TFormCidade
         Anchors = []
         Caption = 'C'#243'digo:'
       end
-      object Label2: TLabel
+      object Label2: TLabel [1]
         Left = 54
         Top = 111
         Width = 40
@@ -60,7 +57,7 @@ inherited FormCidade: TFormCidade
         Anchors = []
         Caption = 'Cidade:'
       end
-      object Label3: TLabel
+      object Label3: TLabel [2]
         Left = 69
         Top = 161
         Width = 25
@@ -68,13 +65,17 @@ inherited FormCidade: TFormCidade
         Anchors = []
         Caption = 'Pa'#237's:'
       end
-      object Label4: TLabel
+      object Label4: TLabel [3]
         Left = 277
         Top = 161
         Width = 19
         Height = 15
         Anchors = []
         Caption = 'UF:'
+      end
+      inherited cbLimparCampos: TCheckBox
+        TabOrder = 4
+        OnClick = cbLimparCamposClick
       end
       object edCidade: TEdit
         Tag = 1

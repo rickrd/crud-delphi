@@ -22,71 +22,87 @@ object FormPadrao: TFormPadrao
     Top = 0
     Width = 598
     Height = 29
+    ButtonHeight = 20
     Caption = 'ToolBar1'
     TabOrder = 0
     object btAnterior: TButton
       Left = 0
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = '<'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 0
     end
     object btProximo: TButton
       Left = 75
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = '>'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 1
     end
     object btBuscar: TButton
       Left = 150
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = 'Buscar'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 2
     end
     object btInserir: TButton
       Left = 225
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = 'Inserir'
-      Default = True
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 3
     end
     object btExcluir: TButton
       Left = 300
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = 'Excluir'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 4
     end
     object btImportar: TButton
       Left = 375
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = 'Importar'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 5
     end
     object btExportar: TButton
       Left = 450
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = 'Exportar'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 6
     end
     object btContar: TButton
       Left = 525
       Top = 0
       Width = 75
-      Height = 22
+      Height = 20
       Caption = 'Contar'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
       TabOrder = 7
     end
   end
@@ -101,8 +117,8 @@ object FormPadrao: TFormPadrao
       598
       284)
     object Panel2: TPanel
-      Left = 98
-      Top = 16
+      Left = 354
+      Top = 296
       Width = 400
       Height = 250
       Anchors = []
