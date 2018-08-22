@@ -6,10 +6,10 @@ object FormGrid: TFormGrid
   AutoScroll = True
   Caption = 'FormGrid'
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -13
+  Font.Name = 'Trebuchet MS'
   Font.Style = []
   FormStyle = fsMDIChild
   OldCreateOrder = False
@@ -17,7 +17,7 @@ object FormGrid: TFormGrid
   OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 18
   object StringGrid1: TStringGrid
     Left = 0
     Top = 59
@@ -46,6 +46,12 @@ object FormGrid: TFormGrid
       Width = 75
       Height = 30
       Caption = 'Excluir'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       OnClick = btExcluirClick
     end
@@ -56,6 +62,12 @@ object FormGrid: TFormGrid
       Height = 30
       Caption = 'Escolher'
       Default = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
       OnClick = btEscolherClick
     end
@@ -64,7 +76,7 @@ object FormGrid: TFormGrid
     Left = 64
     Top = 35
     Width = 70
-    Height = 21
+    Height = 26
     TabOrder = 2
     OnChange = edPesquisaChange
   end

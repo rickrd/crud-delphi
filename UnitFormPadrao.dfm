@@ -8,7 +8,7 @@ object FormPadrao: TFormPadrao
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
-  Font.Name = 'Times New Roman'
+  Font.Name = 'Trebuchet MS'
   Font.Style = []
   FormStyle = fsMDIChild
   OldCreateOrder = False
@@ -16,7 +16,7 @@ object FormPadrao: TFormPadrao
   OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
-  TextHeight = 15
+  TextHeight = 18
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
@@ -32,7 +32,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = '<'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 0
     end
     object btProximo: TButton
@@ -52,7 +58,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = 'Buscar'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 2
     end
     object btInserir: TButton
@@ -62,7 +74,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = 'Inserir'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 3
     end
     object btExcluir: TButton
@@ -72,7 +90,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = 'Excluir'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 4
     end
     object btExportar: TButton
@@ -82,7 +106,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = 'Exportar'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 7
     end
     object btImportar: TButton
@@ -92,7 +122,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = 'Importar'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 5
     end
     object btContar: TButton
@@ -102,7 +138,13 @@ object FormPadrao: TFormPadrao
       Height = 30
       Caption = 'Contar'
       DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = []
       ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 6
     end
   end
@@ -113,21 +155,19 @@ object FormPadrao: TFormPadrao
     Height = 243
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 88
-    ExplicitTop = 61
-    ExplicitHeight = 271
+    ExplicitLeft = -64
+    ExplicitTop = 129
     DesignSize = (
       601
       243)
     object Panel2: TPanel
-      Left = 357
-      Top = 241
-      Width = 380
-      Height = 220
+      Left = 50
+      Top = 20
+      Width = 500
+      Height = 200
       Anchors = []
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 464
       object cbLimparCampos: TCheckBox
         Left = 344
         Top = 229
