@@ -19,12 +19,45 @@ public
   function getObjectByIndex(Index: integer): TObject;
   function getObjectList: TObjectList;
   function getIndexOfObj(wObj: TObject): integer;
+  function getIndexByCod(Cod: integer): integer;
 end;
 
 implementation
+  uses UnitFormCidade, UnitFormEstado, UnitFormPais;
   constructor TLista.Create;
   begin
     FLista := TObjectList.Create;
+  end;
+
+  function TLista.getIndexByCod(Cod: Integer): integer;
+  var
+    wCont: integer;
+    wObj: TObject;
+  begin
+    for wCont := 0 to FLista.Count-1 do
+      begin
+        wObj := FLista.Items[wCont];
+        if wObj.ClassType = TCidade then
+           begin
+             with wObj as TCidade do
+               if wCod = Cod then
+                  Result := FLista.IndexOf(wObj);
+           end
+           else
+             if wObj.ClassType = TEstado then
+                begin
+                  with wObj as TEstado do
+                    if wCod = Cod then
+                       Result := FLista.IndexOf(wObj);
+                end
+                else
+                  if wObj.ClassType = TPais then
+                     begin
+                       with wObj as TPais do
+                         if wCod = Cod then
+                            Result := FLista.IndexOf(wObj);
+                     end;
+      end;
   end;
 
   function TLista.getObjectByIndex(Index: Integer): TObject;  // retorna um objeto de acordo com o index passado por parametro
