@@ -93,16 +93,39 @@ begin
        for wCont := 0 to FLista.Count-1 do
          begin
            wObj := FLista.getObjectByIndex(wCont);
-           if FClass = TCidade then
-              begin
-                with wObj as TCidade do
+                if wObj.ClassType = TCidade then
                   begin
-                    if ContainsText(wCidade, palavra) then
+                    with wObj as TCidade do
+                      begin
+                        if ContainsText(wCidade, palavra) then
+                           begin
+                             wLista.Inserir(wObj, TCidade);
+                           end;
+                      end;
+                  end
+                  else
+                    if wObj.ClassType = TEstado then
                        begin
-                         wLista.Inserir(wObj, TCidade);
-                       end;
-                  end;
-              end;
+                         with wObj as TEstado do
+                           begin
+                             if ContainsText (wEstado, palavra) then
+                                begin
+                                  wLista.Inserir(wObj, TEstado);
+                                end;
+                           end;
+                       end
+                       else
+                         if wObj.ClassType = TPais then
+                            begin
+                              with wObj as TPais do
+                                begin
+                                  if ContainsText (wPais, palavra) then
+                                     begin
+                                       wLista.Inserir(wObj, TPais);
+                                     end;
+                                end;
+                            end;
+
           end;
 
        if wLista.Count > 0 then
@@ -115,13 +138,38 @@ begin
             for wCont := 0 to wLista.Count-1 do
               begin
                 wObj := wLista.getObjectByIndex(wCont);
-                with wObj as TCidade do
+                if wObj.ClassType = TCidade then
                   begin
-                    StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                    StringGrid1.Cells[1, wCont] := wCidade;
-                    StringGrid1.Cells[2, wCont] := wPais;
-                    StringGrid1.Cells[3, wCont] := wUF;
-                  end;
+                    with wObj as TCidade do
+                      begin
+                        StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                        StringGrid1.Cells[1, wCont] := wCidade;
+                        StringGrid1.Cells[2, wCont] := wPais;
+                        StringGrid1.Cells[3, wCont] := wUF;
+                      end;
+                  end
+                  else
+                    if wObj.ClassType = TEstado then
+                       begin
+                         with wObj as TEstado do
+                           begin
+                             StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                             StringGrid1.Cells[1, wCont] := wEstado;
+                             StringGrid1.Cells[2, wCont] := wPais;
+                             StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
+                           end;
+                       end
+                       else
+                         if wObj.ClassType = TPais then
+                            begin
+                              with wObj as Tpais do
+                                begin
+                                  StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                                  StringGrid1.Cells[1, wCont] := wPais;
+                                  StringGrid1.Cells[2, wCont] := wNacionalidade;
+                                  StringGrid1.Cells[3, wCont] := inttostr(wCodfed);
+                                end;
+                            end;
               end;
           end;
      end
@@ -131,13 +179,38 @@ begin
          for wCont := 0 to FLista.Count-1 do
            begin
              wObj := FLista.getObjectByIndex(wCont);
-             with wObj as TCidade do
-               begin
-                 StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                 StringGrid1.Cells[1, wCont] := wCidade;
-                 StringGrid1.Cells[2, wCont] := wPais;
-                 StringGrid1.Cells[3, wCont] := wUF;
-               end;
+             if wObj.ClassType = TCidade then
+                begin
+                  with wObj as TCidade do
+                    begin
+                      StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                      StringGrid1.Cells[1, wCont] := wCidade;
+                      StringGrid1.Cells[2, wCont] := wPais;
+                      StringGrid1.Cells[3, wCont] := wUF;
+                    end;
+                end
+                else
+                  if wObj.ClassType = TEstado then
+                     begin
+                       with wObj as TEstado do
+                         begin
+                           StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                           StringGrid1.Cells[1, wCont] := wEstado;
+                           StringGrid1.Cells[2, wCont] := wPais;
+                           StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
+                         end;
+                     end
+                     else
+                       if wObj.ClassType = TPais then
+                          begin
+                            with wObj as TPais do
+                              begin
+                                StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                                StringGrid1.Cells[1, wCont] := wPais;
+                                StringGrid1.Cells[2, wCont] := wNacionalidade;
+                                StringGrid1.Cells[3, wCont] := inttostr(wCodFed);
+                              end;
+                          end;
            end;
        end;
 end;

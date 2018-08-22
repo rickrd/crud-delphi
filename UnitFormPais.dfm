@@ -22,7 +22,6 @@ inherited FormPais: TFormPais
       OnClick = btBuscarClick
     end
     inherited btInserir: TButton
-      Default = False
       OnClick = btInserirClick
     end
     inherited btExcluir: TButton
@@ -43,14 +42,12 @@ inherited FormPais: TFormPais
     DesignSize = (
       602
       266)
-    inherited cbLimparCampos: TCheckBox
-      TabOrder = 1
-    end
     inherited Panel2: TPanel
+      Left = 99
       Top = 6
-      TabOrder = 0
-      ExplicitLeft = 98
-      object Label1: TLabel
+      ExplicitLeft = 99
+      ExplicitTop = 6
+      object Label1: TLabel [0]
         Left = 49
         Top = 74
         Width = 42
@@ -58,7 +55,7 @@ inherited FormPais: TFormPais
         Anchors = []
         Caption = 'C'#243'digo:'
       end
-      object Label2: TLabel
+      object Label2: TLabel [1]
         Left = 66
         Top = 117
         Width = 25
@@ -66,7 +63,7 @@ inherited FormPais: TFormPais
         Anchors = []
         Caption = 'Pa'#237's:'
       end
-      object Label3: TLabel
+      object Label3: TLabel [2]
         Left = 12
         Top = 165
         Width = 79
@@ -74,13 +71,16 @@ inherited FormPais: TFormPais
         Anchors = []
         Caption = 'Nacionalidade:'
       end
-      object Label4: TLabel
+      object Label4: TLabel [3]
         Left = 268
         Top = 163
         Width = 51
         Height = 15
         Anchors = []
         Caption = 'C'#243'd.Fed.:'
+      end
+      inherited cbLimparCampos: TCheckBox
+        TabOrder = 4
       end
       object edCod: TEdit
         Left = 110

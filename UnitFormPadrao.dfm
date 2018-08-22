@@ -3,7 +3,7 @@ object FormPadrao: TFormPadrao
   Top = 0
   Caption = 'FormPadrao'
   ClientHeight = 332
-  ClientWidth = 598
+  ClientWidth = 601
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -20,11 +20,12 @@ object FormPadrao: TFormPadrao
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 598
+    Width = 601
     Height = 29
     ButtonHeight = 20
     Caption = 'ToolBar1'
     TabOrder = 0
+    ExplicitWidth = 598
     object btAnterior: TButton
       Left = 0
       Top = 0
@@ -109,21 +110,23 @@ object FormPadrao: TFormPadrao
   object Panel1: TPanel
     Left = 0
     Top = 29
-    Width = 598
+    Width = 601
     Height = 284
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 598
     DesignSize = (
-      598
+      601
       284)
     object Panel2: TPanel
-      Left = 354
+      Left = 357
       Top = 296
       Width = 400
       Height = 250
       Anchors = []
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 354
       object cbLimparCampos: TCheckBox
         Left = 344
         Top = 229
@@ -137,7 +140,7 @@ object FormPadrao: TFormPadrao
   object StatusBar1: TStatusBar
     Left = 0
     Top = 313
-    Width = 598
+    Width = 601
     Height = 19
     Panels = <
       item
@@ -146,6 +149,7 @@ object FormPadrao: TFormPadrao
         Text = 'Aguardando'
         Width = 50
       end>
+    ExplicitWidth = 598
   end
   object SaveTextFileDialog1: TSaveTextFileDialog
     Left = 552

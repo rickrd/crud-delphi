@@ -22,7 +22,7 @@ object FormGrid: TFormGrid
     Left = 0
     Top = 59
     Width = 265
-    Height = 184
+    Height = 222
     ColCount = 4
     DrawingStyle = gdsClassic
     FixedCols = 0

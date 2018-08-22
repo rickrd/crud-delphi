@@ -1,11 +1,14 @@
 inherited FormCidade: TFormCidade
   Caption = 'Cadastro de cidade:'
   ClientHeight = 312
+  ClientWidth = 600
   OnCreate = FormCreate
+  ExplicitWidth = 616
   ExplicitHeight = 351
   PixelsPerInch = 96
   TextHeight = 15
   inherited ToolBar1: TToolBar
+    Width = 600
     inherited btAnterior: TButton
       TabOrder = 2
       OnClick = btAnteriorClick
@@ -34,10 +37,11 @@ inherited FormCidade: TFormCidade
     end
   end
   inherited Panel1: TPanel
+    Width = 600
     Height = 264
     ExplicitHeight = 264
     inherited Panel2: TPanel
-      Left = 99
+      Left = 100
       Top = 6
       ExplicitLeft = 99
       ExplicitTop = 6
@@ -121,6 +125,7 @@ inherited FormCidade: TFormCidade
   end
   inherited StatusBar1: TStatusBar
     Top = 293
+    Width = 600
     Panels = <
       item
         Text = 'Aguardando'
