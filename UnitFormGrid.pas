@@ -20,7 +20,6 @@ type
     procedure btEscolherClick(Sender: TObject);
     procedure edPesquisaChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure testeStringGrid();
   private
     { Private declarations }
     palavra: string;
@@ -37,15 +36,6 @@ var
 implementation
 {$R *.dfm}
 uses UnitFormCidade;
-
-procedure TFormGrid.testeStringGrid();
-begin
-//ShowMessage(FormGrid.StringGrid1.Cells[0,0]);
-  StringGrid1.Cells[0, 0] := 'a';
-  StringGrid1.Cells[1, 0] := 'a';
-  StringGrid1.Cells[2, 0] := 'a';
-  StringGrid1.Cells[3, 0] := 'a';
-end;
 
 procedure TFormGrid.btEscolherClick(Sender: TObject);
 var
@@ -236,7 +226,6 @@ begin
        FClass := Classe;
        checkList := false;
      end;
-  ShowMessage('wLista count:'+inttostr(Lista.Count));
   StringGrid1.RowCount := Lista.Count;
   for wCont := 0 to Lista.Count-1 do
     begin

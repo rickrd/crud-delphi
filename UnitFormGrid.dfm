@@ -27,7 +27,7 @@ object FormGrid: TFormGrid
     DrawingStyle = gdsClassic
     FixedCols = 0
     FixedRows = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goRowSelect]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -37,23 +37,23 @@ object FormGrid: TFormGrid
     Top = 0
     Width = 432
     Height = 29
-    ButtonHeight = 21
+    ButtonHeight = 30
     Caption = 'ToolBar1'
     TabOrder = 1
     object btExcluir: TButton
       Left = 0
       Top = 0
-      Width = 70
-      Height = 21
+      Width = 75
+      Height = 30
       Caption = 'Excluir'
       TabOrder = 0
       OnClick = btExcluirClick
     end
     object btEscolher: TButton
-      Left = 70
+      Left = 75
       Top = 0
-      Width = 70
-      Height = 21
+      Width = 75
+      Height = 30
       Caption = 'Escolher'
       Default = True
       TabOrder = 1

@@ -1,16 +1,12 @@
 inherited FormEstado: TFormEstado
   Caption = 'Cadastro de estado:'
   ClientHeight = 313
-  ClientWidth = 601
   OnCreate = FormCreate
-  ExplicitWidth = 617
   ExplicitHeight = 352
   PixelsPerInch = 96
   TextHeight = 15
   inherited ToolBar1: TToolBar
-    Width = 601
     Anchors = []
-    ExplicitWidth = 601
     inherited btAnterior: TButton
       OnClick = btAnteriorClick
     end
@@ -21,7 +17,6 @@ inherited FormEstado: TFormEstado
       OnClick = btBuscarClick
     end
     inherited btInserir: TButton
-      Default = False
       OnClick = btInserirClick
     end
     inherited btExcluir: TButton
@@ -30,109 +25,118 @@ inherited FormEstado: TFormEstado
     inherited btImportar: TButton
       OnClick = btImportarClick
     end
-    inherited btExportar: TButton
-      OnClick = btExportarClick
-    end
     inherited btContar: TButton
       OnClick = btContarClick
     end
   end
   inherited Panel1: TPanel
-    Width = 601
-    Height = 265
-    ExplicitWidth = 601
-    ExplicitHeight = 265
-    inherited cbLimparCampos: TCheckBox
-      TabOrder = 1
-    end
+    Height = 244
+    ExplicitHeight = 261
     inherited Panel2: TPanel
-      Left = 102
+      Left = 110
       Top = 6
-      TabOrder = 0
-      ExplicitLeft = 102
-      object Label1: TLabel
-        Left = 50
-        Top = 65
+      ExplicitLeft = 110
+      ExplicitTop = 6
+      object Label1: TLabel [0]
+        Left = 46
+        Top = 56
         Width = 42
         Height = 15
         Anchors = []
         Caption = 'C'#243'digo:'
+        ExplicitLeft = 50
+        ExplicitTop = 65
       end
-      object Label2: TLabel
-        Left = 52
-        Top = 108
+      object Label2: TLabel [1]
+        Left = 48
+        Top = 94
         Width = 40
         Height = 15
         Anchors = []
         Caption = 'Estado:'
+        ExplicitLeft = 52
+        ExplicitTop = 108
       end
-      object Label3: TLabel
-        Left = 67
-        Top = 153
+      object Label3: TLabel [2]
+        Left = 63
+        Top = 134
         Width = 25
         Height = 15
         Anchors = []
         Caption = 'Pa'#237's:'
+        ExplicitLeft = 67
+        ExplicitTop = 153
       end
-      object Label4: TLabel
-        Left = 266
-        Top = 153
+      object Label4: TLabel [3]
+        Left = 252
+        Top = 134
         Width = 29
         Height = 15
         Anchors = []
         Caption = 'Al'#237'q.:'
+        ExplicitLeft = 266
+        ExplicitTop = 153
+      end
+      inherited cbLimparCampos: TCheckBox
+        TabOrder = 4
       end
       object edAliquota: TEdit
         Tag = 3
-        Left = 306
-        Top = 150
+        Left = 289
+        Top = 131
         Width = 75
         Height = 23
         Anchors = []
         TabOrder = 0
         OnKeyPress = edFinalKeyPress
+        ExplicitLeft = 306
+        ExplicitTop = 150
       end
       object edCod: TEdit
-        Left = 110
-        Top = 62
+        Left = 103
+        Top = 53
         Width = 75
         Height = 23
         Anchors = []
         TabOrder = 1
         OnExit = edCodExit
         OnKeyPress = onKeyPress
+        ExplicitLeft = 110
+        ExplicitTop = 62
       end
       object edEstado: TEdit
         Tag = 1
-        Left = 110
-        Top = 105
+        Left = 101
+        Top = 91
         Width = 150
         Height = 23
         Anchors = []
         TabOrder = 2
         OnKeyPress = onKeyPress
+        ExplicitLeft = 110
+        ExplicitTop = 105
       end
       object edPais: TEdit
         Tag = 2
-        Left = 110
-        Top = 150
+        Left = 101
+        Top = 131
         Width = 150
         Height = 23
         Anchors = []
         TabOrder = 3
         OnKeyPress = onKeyPress
+        ExplicitLeft = 110
+        ExplicitTop = 150
       end
     end
   end
   inherited StatusBar1: TStatusBar
-    Top = 294
-    Width = 601
+    Top = 285
     Panels = <
       item
         Text = 'Aguardando'
         Width = 50
       end>
     ExplicitTop = 294
-    ExplicitWidth = 601
   end
 end

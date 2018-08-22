@@ -2,7 +2,7 @@ object FormPadrao: TFormPadrao
   Left = 0
   Top = 0
   Caption = 'FormPadrao'
-  ClientHeight = 332
+  ClientHeight = 312
   ClientWidth = 601
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -21,16 +21,15 @@ object FormPadrao: TFormPadrao
     Left = 0
     Top = 0
     Width = 601
-    Height = 29
-    ButtonHeight = 20
+    Height = 41
+    ButtonHeight = 30
     Caption = 'ToolBar1'
     TabOrder = 0
-    ExplicitWidth = 598
     object btAnterior: TButton
       Left = 0
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
       Caption = '<'
       DoubleBuffered = False
       ParentDoubleBuffered = False
@@ -40,7 +39,7 @@ object FormPadrao: TFormPadrao
       Left = 75
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
       Caption = '>'
       DoubleBuffered = False
       ParentDoubleBuffered = False
@@ -50,7 +49,7 @@ object FormPadrao: TFormPadrao
       Left = 150
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
       Caption = 'Buscar'
       DoubleBuffered = False
       ParentDoubleBuffered = False
@@ -60,7 +59,7 @@ object FormPadrao: TFormPadrao
       Left = 225
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
       Caption = 'Inserir'
       DoubleBuffered = False
       ParentDoubleBuffered = False
@@ -70,63 +69,65 @@ object FormPadrao: TFormPadrao
       Left = 300
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
       Caption = 'Excluir'
       DoubleBuffered = False
       ParentDoubleBuffered = False
       TabOrder = 4
     end
-    object btImportar: TButton
+    object btExportar: TButton
       Left = 375
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
+      Caption = 'Exportar'
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
+      TabOrder = 7
+    end
+    object btImportar: TButton
+      Left = 450
+      Top = 0
+      Width = 75
+      Height = 30
       Caption = 'Importar'
       DoubleBuffered = False
       ParentDoubleBuffered = False
       TabOrder = 5
     end
-    object btExportar: TButton
-      Left = 450
-      Top = 0
-      Width = 75
-      Height = 20
-      Caption = 'Exportar'
-      DoubleBuffered = False
-      ParentDoubleBuffered = False
-      TabOrder = 6
-    end
     object btContar: TButton
       Left = 525
       Top = 0
       Width = 75
-      Height = 20
+      Height = 30
       Caption = 'Contar'
       DoubleBuffered = False
       ParentDoubleBuffered = False
-      TabOrder = 7
+      TabOrder = 6
     end
   end
   object Panel1: TPanel
     Left = 0
-    Top = 29
+    Top = 41
     Width = 601
-    Height = 284
+    Height = 243
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 598
+    ExplicitLeft = 88
+    ExplicitTop = 61
+    ExplicitHeight = 271
     DesignSize = (
       601
-      284)
+      243)
     object Panel2: TPanel
       Left = 357
-      Top = 296
-      Width = 400
-      Height = 250
+      Top = 241
+      Width = 380
+      Height = 220
       Anchors = []
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 354
+      ExplicitTop = 464
       object cbLimparCampos: TCheckBox
         Left = 344
         Top = 229
@@ -139,9 +140,9 @@ object FormPadrao: TFormPadrao
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 313
+    Top = 284
     Width = 601
-    Height = 19
+    Height = 28
     Panels = <
       item
         BiDiMode = bdLeftToRight
@@ -149,7 +150,7 @@ object FormPadrao: TFormPadrao
         Text = 'Aguardando'
         Width = 50
       end>
-    ExplicitWidth = 598
+    ExplicitTop = 312
   end
   object SaveTextFileDialog1: TSaveTextFileDialog
     Left = 552
