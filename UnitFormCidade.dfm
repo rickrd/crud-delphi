@@ -7,6 +7,7 @@ inherited FormCidade: TFormCidade
   TextHeight = 18
   inherited ToolBar1: TToolBar
     Width = 600
+    ExplicitWidth = 600
     inherited btAnterior: TButton
       TabOrder = 2
       OnClick = btAnteriorClick
@@ -33,42 +34,42 @@ inherited FormCidade: TFormCidade
   end
   inherited Panel1: TPanel
     Width = 600
-    ExplicitHeight = 260
+    ExplicitWidth = 600
     DesignSize = (
       600
       243)
     inherited Panel2: TPanel
       object Label1: TLabel [0]
-        Left = 70
+        Left = 75
         Top = 20
-        Width = 50
-        Height = 25
+        Width = 45
+        Height = 18
         Alignment = taRightJustify
         Anchors = []
         Caption = 'C'#243'digo:'
       end
       object Label2: TLabel [1]
-        Left = 70
+        Left = 75
         Top = 70
-        Width = 50
-        Height = 25
+        Width = 45
+        Height = 18
         Alignment = taRightJustify
         Anchors = []
         Caption = 'Cidade:'
       end
       object Label3: TLabel [2]
-        Left = 70
+        Left = 92
         Top = 120
-        Width = 50
-        Height = 25
+        Width = 28
+        Height = 18
         Alignment = taRightJustify
         Caption = 'Pa'#237's:'
       end
       object Label4: TLabel [3]
-        Left = 300
+        Left = 330
         Top = 120
-        Width = 50
-        Height = 25
+        Width = 20
+        Height = 18
         Alignment = taRightJustify
         Anchors = []
         Caption = 'UF:'
@@ -126,6 +127,7 @@ inherited FormCidade: TFormCidade
         Text = 'Aguardando'
         Width = 50
       end>
-    ExplicitTop = 293
+    ExplicitTop = 284
+    ExplicitWidth = 600
   end
 end

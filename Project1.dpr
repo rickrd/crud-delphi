@@ -9,7 +9,9 @@ uses
   UnitFormEstado in 'UnitFormEstado.pas' {FormEstado},
   UnitFormPais in 'UnitFormPais.pas' {FormPais},
   UnitFormGrid in 'UnitFormGrid.pas' {FormGrid},
-  UnitDados in 'UnitDados.pas';
+  UnitDados in 'UnitDados.pas',
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 

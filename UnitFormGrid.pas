@@ -13,16 +13,20 @@ type
     ToolBar1: TToolBar;
     btExcluir: TButton;
     btEscolher: TButton;
-    edPesquisa: TEdit;
+    edKeyPress: TEdit;
+    StatusBar1: TStatusBar;
     procedure geraGrid(Lista: TLista; Classe: TClass);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btExcluirClick(Sender: TObject);
     procedure btEscolherClick(Sender: TObject);
-    procedure edPesquisaChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure StringGrid1KeyPress(Sender: TObject; var Key: Char);
+    procedure limpaGrid();
   private
     { Private declarations }
     palavra: string;
+    palavraPesquisa: string;
   public
     { Public declarations }
   end;
@@ -36,6 +40,16 @@ var
 implementation
 {$R *.dfm}
 uses UnitFormCidade;
+
+procedure TFormGrid.limpaGrid;
+var
+   linha: integer;
+begin
+  for linha:= 1 to StringGrid1.RowCount -1 do
+    begin
+      StringGrid1.Rows[linha].Clear; //Cells[coluna,linha]:='';
+    end;
+end;
 
 procedure TFormGrid.btEscolherClick(Sender: TObject);
 var
@@ -69,142 +83,6 @@ begin
 
 end;
 
-procedure TFormGrid.edPesquisaChange(Sender: TObject);
-var
-  wCont: integer;
-  wObj: TObject;
-  wLista: TLista;
-  linha: integer;
-begin
-  palavra := edPesquisa.Text;
-  if palavra <> '' then
-     begin
-       wLista := TLista.Create;
-       for wCont := 0 to FLista.Count-1 do
-         begin
-           wObj := FLista.getObjectByIndex(wCont);
-                if wObj.ClassType = TCidade then
-                  begin
-                    with wObj as TCidade do
-                      begin
-                        if ContainsText(wCidade, palavra) then
-                           begin
-                             wLista.Inserir(wObj, TCidade);
-                           end;
-                      end;
-                  end
-                  else
-                    if wObj.ClassType = TEstado then
-                       begin
-                         with wObj as TEstado do
-                           begin
-                             if ContainsText (wEstado, palavra) then
-                                begin
-                                  wLista.Inserir(wObj, TEstado);
-                                end;
-                           end;
-                       end
-                       else
-                         if wObj.ClassType = TPais then
-                            begin
-                              with wObj as TPais do
-                                begin
-                                  if ContainsText (wPais, palavra) then
-                                     begin
-                                       wLista.Inserir(wObj, TPais);
-                                     end;
-                                end;
-                            end;
-
-          end;
-
-       if wLista.Count > 0 then
-          begin
-            for linha:= 1 to StringGrid1.RowCount -1 do
-              begin
-                StringGrid1.Rows[linha].Clear; //Cells[coluna,linha]:='';
-              end;
-            StringGrid1.RowCount := wLista.Count;
-            for wCont := 0 to wLista.Count-1 do
-              begin
-                wObj := wLista.getObjectByIndex(wCont);
-                if wObj.ClassType = TCidade then
-                  begin
-                    with wObj as TCidade do
-                      begin
-                        StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                        StringGrid1.Cells[1, wCont] := wCidade;
-                        StringGrid1.Cells[2, wCont] := wPais;
-                        StringGrid1.Cells[3, wCont] := wUF;
-                      end;
-                  end
-                  else
-                    if wObj.ClassType = TEstado then
-                       begin
-                         with wObj as TEstado do
-                           begin
-                             StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                             StringGrid1.Cells[1, wCont] := wEstado;
-                             StringGrid1.Cells[2, wCont] := wPais;
-                             StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
-                           end;
-                       end
-                       else
-                         if wObj.ClassType = TPais then
-                            begin
-                              with wObj as Tpais do
-                                begin
-                                  StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                                  StringGrid1.Cells[1, wCont] := wPais;
-                                  StringGrid1.Cells[2, wCont] := wNacionalidade;
-                                  StringGrid1.Cells[3, wCont] := inttostr(wCodfed);
-                                end;
-                            end;
-              end;
-          end;
-     end
-     else
-       begin
-         StringGrid1.RowCount := Flista.Count;
-         for wCont := 0 to FLista.Count-1 do
-           begin
-             wObj := FLista.getObjectByIndex(wCont);
-             if wObj.ClassType = TCidade then
-                begin
-                  with wObj as TCidade do
-                    begin
-                      StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                      StringGrid1.Cells[1, wCont] := wCidade;
-                      StringGrid1.Cells[2, wCont] := wPais;
-                      StringGrid1.Cells[3, wCont] := wUF;
-                    end;
-                end
-                else
-                  if wObj.ClassType = TEstado then
-                     begin
-                       with wObj as TEstado do
-                         begin
-                           StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                           StringGrid1.Cells[1, wCont] := wEstado;
-                           StringGrid1.Cells[2, wCont] := wPais;
-                           StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
-                         end;
-                     end
-                     else
-                       if wObj.ClassType = TPais then
-                          begin
-                            with wObj as TPais do
-                              begin
-                                StringGrid1.Cells[0, wCont] := inttostr(wCod);
-                                StringGrid1.Cells[1, wCont] := wPais;
-                                StringGrid1.Cells[2, wCont] := wNacionalidade;
-                                StringGrid1.Cells[3, wCont] := inttostr(wCodFed);
-                              end;
-                          end;
-           end;
-       end;
-end;
-
 procedure TFormGrid.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := caFree;
@@ -213,6 +91,13 @@ end;
 procedure TFormGrid.FormCreate(Sender: TObject);
 begin
   checkList := true;
+end;
+
+procedure TFormGrid.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  edKeyPress.Text := Key;
+  ShowMessage(key);
+  ShowMessage('teste');
 end;
 
 procedure TFormGrid.geraGrid(Lista: TLista; Classe: TClass);
@@ -238,24 +123,147 @@ begin
               StringGrid1.Cells[1, wCont] := wCidade;
               StringGrid1.Cells[2, wCont] := wPais;
               StringGrid1.Cells[3, wCont] := wUF;
+            end
+            else
+              if wObj.ClassType = TEstado then
+                 with wObj as TEstado do
+                   begin
+                     StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                     StringGrid1.Cells[1, wCont] := wEstado;
+                     StringGrid1.Cells[2, wCont] := wPais;
+                     StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
+                    end
+              else
+                if wObj.ClassType = TPais then
+                   with wObj as TPais do
+                     begin
+                       StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                       StringGrid1.Cells[1, wCont] := wPais;
+                       StringGrid1.Cells[2, wCont] := wNacionalidade;
+                       StringGrid1.Cells[3, wCont] := inttostr(wCodFed);
+                     end;
+    end;
+end;
+
+procedure TFormGrid.StringGrid1KeyPress(Sender: TObject; var Key: Char);
+var
+  wObj: TObject;
+  wCol: integer;
+  wLista: TLista;
+  wCont: Integer;
+begin
+  if ord(Key) = 8 then
+     begin
+       edKeyPress.Text := '';
+       limpaGrid();
+       StringGrid1.RowCount := FLista.Count;
+       for wCont := 0 to Flista.Count-1 do
+         begin
+           wObj := FLista.getObjectByIndex(wCont);
+           if wObj.ClassType = TCidade then
+              begin
+                with wObj as TCidade do
+                  begin
+                    StringGrid1.Cells[0, wcont] := inttostr(wCod);
+                    StringGrid1.Cells[1, wCont] := wCidade;
+                    StringGrid1.Cells[2, wCont] := wPais;
+                    StringGrid1.Cells[3, wCont] := wUF;
+                  end;
+              end
+              else
+                if wObj.ClassType = TEstado then
+                   begin
+                     with wObj as TEstado do
+                       begin
+                         StringGrid1.Cells[0, wcont] := inttostr(wCod);
+                         StringGrid1.Cells[1, wCont] := wEstado;
+                         StringGrid1.Cells[2, wCont] := wPais;
+                         StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
+                       end;
+                   end
+                   else
+                     if wObj.ClassType = TPais then
+                        begin
+                          with wObj as TPais do
+                            begin
+                              StringGrid1.Cells[0, wcont] := inttostr(wCod);
+                              StringGrid1.Cells[1, wCont] := wPais;
+                              StringGrid1.Cells[2, wCont] := wNacionalidade;
+                              StringGrid1.Cells[3, wCont] := inttostr(wCodFed);
+                            end;
+                        end;
+         end;
+     end
+     else
+       begin
+         edKeyPress.Text := edKeyPress.Text + key;
+         wCol :=StringGrid1.Col;
+         wLista := TLista.Create;
+              for wCont := 0 to FLista.Count-1 do
+                begin
+                  wObj := FLista.getObjectByIndex(wCont);
+                  if wObj.ClassType = TCidade then
+                     begin
+                       with wObj as TCidade do
+                         if (wCol = 0) and (ContainsText (inttostr(wCod), edKeyPress.Text)) then
+                            wLista.Inserir(wObj, TCidade)
+                         else
+                           if (wCol = 1) and (ContainsText (wCidade, edKeyPress.Text)) then
+                              wLista.Inserir(wObj, TCidade)
+                           else
+                             if (wCol = 2) and (ContainsText (wPais, edKeyPress.Text)) then
+                                   wLista.Inserir(wObj, TCidade)
+                             else
+                               if (wCol = 3) and (ContainsText (wUF, edKeyPress.Text)) then
+                                     wLista.Inserir(wObj, TCidade);
+                     end
+                     else
+                       if wObj.ClassType = TEstado then
+                          begin
+                            with wObj as TEstado do
+                              if (wCol =0) and (ContainsText (inttostr(wCod), edKeypress.Text)) then
+                                 wLista.Inserir(wObj, TEstado)
+                              else
+                                if (wCol =1) and (ContainsText(wEstado, edkeyPress.Text)) then
+                                   wLista.Inserir(wObj, TEstado)
+                                else
+                                  if (wCol =2) and (ContainsText(wPais, edKeyPress.Text)) then
+                                     wLista.Inserir(wObj, TEstado)
+                                  else
+                                    if (wCol =3) and (ContainsText(inttostr(wAliquota), edKeyPress.Text)) then
+                                       wLista.Inserir(wObj, TEstado);
+                          end
+                          else
+                            if wObj.ClassType = TPais then
+                               begin
+
+                               end;
+
+
+                end;
+
+         if wLista.Count > 0 then
+            begin
+              limpaGrid();
+              StringGrid1.RowCount := wLista.Count;
+              for wCont := 0 to wLista.Count-1 do
+                begin
+                  wObj := wLista.getObjectByIndex(wCont);
+                  if wObj.ClassType = TCidade then
+                     begin
+                       with wObj as TCidade do
+                         begin
+                           StringGrid1.Cells[0, wCont] := inttostr(wCod);
+                           StringGrid1.Cells[1, wCont] := wCidade;
+                           StringGrid1.Cells[2, wCont] := wPais;
+                           StringGrid1.Cells[3, wCont] := wUF;
+                         end;
+                     end;
+                end;
             end;
-    if wObj.ClassType = TEstado then
-       with wObj as TEstado do
-         begin
-           StringGrid1.Cells[0, wCont] := inttostr(wCod);
-           StringGrid1.Cells[1, wCont] := wEstado;
-           StringGrid1.Cells[2, wCont] := wPais;
-           StringGrid1.Cells[3, wCont] := inttostr(wAliquota);
-         end;
-    if wObj.ClassType = TPais then
-       with wObj as TPais do
-         begin
-           StringGrid1.Cells[0, wCont] := inttostr(wCod);
-           StringGrid1.Cells[1, wCont] := wPais;
-           StringGrid1.Cells[2, wCont] := wNacionalidade;
-           StringGrid1.Cells[3, wCont] := inttostr(wCodFed);
-         end;
-  end;
+
+       end;
+
 end;
 
 end.

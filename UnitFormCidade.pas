@@ -28,7 +28,6 @@ type
     procedure btExportarClick(Sender: TObject);
     procedure btImportarClick(Sender: TObject);
     procedure btContarClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
     procedure edCodExit(Sender: TObject);
     procedure edFinalKeyPress(Sender: TObject; var Key: Char);
     procedure limpaCampos();
@@ -125,12 +124,6 @@ begin
           end;
        end;
   end;
-end;
-
-procedure TFormCidade.Button1Click(Sender: TObject);
-begin
-  inherited;
-  ShowMessage('teste');
 end;
 
 procedure TFormCidade.cbLimparCamposClick(Sender: TObject);
